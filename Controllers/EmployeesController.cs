@@ -10,24 +10,24 @@ namespace EmployeeAdminPortal.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public EmployeesController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            this._dbContext = dbContext;
         }
 
         [HttpGet]
         public IActionResult GetAllEmployees()
         {
-            return Ok(this.dbContext.Employees.ToList());
+            return Ok(this._dbContext.Employees.ToList());
         }
 
         [HttpGet]
         [Route("{id:guid}")]
         public IActionResult GetEmployeeById(Guid id)
         {
-            var employee = dbContext.Employees.Find(id);
+            var employee = _dbContext.Employees.Find(id);
 
             if (employee is null)
             {
@@ -48,8 +48,8 @@ namespace EmployeeAdminPortal.Controllers
                 Salary = addEmployeeDto.Salary,
             };
 
-            dbContext.Employees.Add(employeeEntity);
-            dbContext.SaveChanges();
+            _dbContext.Employees.Add(employeeEntity);
+            _dbContext.SaveChanges();
 
             return Ok(employeeEntity);
         }
@@ -58,7 +58,7 @@ namespace EmployeeAdminPortal.Controllers
         [Route("{id:guid}")]
         public IActionResult UpdateEmployee(Guid id, UpdateEmployeeDto updateEmployeeDto)
         {
-            var employee = dbContext.Employees.Find(id);
+            var employee = _dbContext.Employees.Find(id);
 
             if (employee is null)
             {
@@ -70,7 +70,7 @@ namespace EmployeeAdminPortal.Controllers
             employee.Phone = updateEmployeeDto.Phone;
             employee.Salary = updateEmployeeDto.Salary;
 
-            dbContext.SaveChanges();
+            _dbContext.SaveChanges();
 
             return Ok(employee);
         }
@@ -79,15 +79,15 @@ namespace EmployeeAdminPortal.Controllers
         [Route("{id:guid}")]
         public IActionResult DeleteEmployee(Guid id)
         {
-            var employee = dbContext.Employees.Find(id);
+            var employee = _dbContext.Employees.Find(id);
 
             if (employee is null)
             {
                 return NotFound();
             }
 
-            dbContext.Employees.Remove(employee);
-            dbContext.SaveChanges();
+            _dbContext.Employees.Remove(employee);
+            _dbContext.SaveChanges();
 
             return Ok();
         }
