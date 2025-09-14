@@ -1,8 +1,8 @@
 ﻿using EmployeeAdminPortal.Employees.AddEmployee.Dtos;
 
-namespace EmployeeAdminPortal.Employees.AddEmployee
+namespace EmployeeAdminPortal.Employees.UpdateEmployee
 {
-    public class AddEmployeeRequest
+    public class UpdateEmployeeResponse
     {
         public EmployeeDto Employee { get; set; } = null!;
     }

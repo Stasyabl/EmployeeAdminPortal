@@ -2,7 +2,7 @@
 
 namespace EmployeeAdminPortal.Models.Outputs
 {
-    public class GetEmployeeOutput
+    public class GetEmployeeByIdOutput
     {
         public Employee? Employee { get; set; }
     }

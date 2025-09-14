@@ -2,7 +2,7 @@
 
 namespace EmployeeAdminPortal.Employees.AddEmployee
 {
-    public class AddEmployeeRequest
+    public class AddEmployeeResponse
     {
         public EmployeeDto Employee { get; set; } = null!;
     }

@@ -8,7 +8,7 @@ namespace EmployeeAdminPortal.Interfaces.Services
     public interface IEmployeeService
     {
         GetAllEmployeesOutput GetAllEmployees();
-        GetEmployeeOutput GetEmployeeById(GetEmployeeByIdInput input);
+        GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input);
         AddEmployeeOutput AddEmployee(AddEmployeeInput input);
         UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input);
         DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input);

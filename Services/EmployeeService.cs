@@ -19,7 +19,7 @@ namespace EmployeeAdminPortal.Services
             throw new NotImplementedException();
         }
 
-        public GetEmployeeOutput GetEmployeeById(GetEmployeeByIdInput input)
+        public GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input)
         {
             throw new NotImplementedException();
         }
