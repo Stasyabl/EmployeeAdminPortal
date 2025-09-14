@@ -2,6 +2,7 @@
 using EmployeeAdminPortal.Interfaces.Services;
 using EmployeeAdminPortal.Models.Inputs;
 using EmployeeAdminPortal.Models.Outputs;
+using EmployeeAdminPortal.Models.Entities;
 
 namespace EmployeeAdminPortal.Services
 {
@@ -16,27 +17,82 @@ namespace EmployeeAdminPortal.Services
 
         public GetAllEmployeesOutput GetAllEmployees()
         {
-            throw new NotImplementedException();
+            var employees = this._dbContext.Employees.Where(e => !e.IsDeleted).ToList();
+
+            return new GetAllEmployeesOutput()
+            {
+                Employees = employees
+            };
         }
 
         public GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input)
         {
-            throw new NotImplementedException();
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+
+            return new GetEmployeeByIdOutput()
+            {
+                Employee = employee
+            };
         }
 
         public AddEmployeeOutput AddEmployee(AddEmployeeInput input)
         {
-            throw new NotImplementedException();
+            var employee = new Employee
+            {
+                Name = input.Employee.Name,
+                Email = input.Employee.Email,
+                Phone = input.Employee.Phone,
+                Salary = input.Employee.Salary,
+                IsDeleted = false
+            };
+
+            this._dbContext.Employees.Add(employee);
+            this._dbContext.SaveChanges();
+
+            return new AddEmployeeOutput()
+            {
+                Employee = employee
+            };
         }
 
         public UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input)
         {
-            throw new NotImplementedException();
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+
+            if (employee is null)
+            {
+                return null!;
+            }
+
+            employee.Name = input.Employee.Name;
+            employee.Email = input.Employee.Email;
+            employee.Phone = input.Employee.Phone;
+            employee.Salary = input.Employee.Salary;
+
+            this._dbContext.SaveChanges();
+
+            return new UpdateEmployeeOutput()
+            {
+                Employee = employee
+            };
         }
 
         public DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input)
         {
-            throw new NotImplementedException();
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+
+            if (employee is null)
+            {
+                return new DeleteEmployeeOutput { Success = false };
+            }
+
+            employee.IsDeleted = true;
+            this._dbContext.SaveChanges();
+
+            return new DeleteEmployeeOutput() 
+            { 
+                Success = true 
+            };
         }
     }
 }
