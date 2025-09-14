@@ -2,7 +2,7 @@
 {
     public class Employee
     {
-        public Guid Id { get; set; }
+        public Guid EmployeeId { get; set; }
 
         public required string Name { get; set; }
 
@@ -11,5 +11,7 @@
         public string? Phone { get; set; }
 
         public decimal Salary { get; set; }
+
+        public bool IsDeleted { get; set; } = false;
     }
 }

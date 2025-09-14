@@ -4,7 +4,7 @@ using EmployeeAdminPortal.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeeAdminPortal.Controllers
+namespace EmployeeAdminPortal.Employees
 {
     [Route("api/[controller]")]
     [ApiController]
