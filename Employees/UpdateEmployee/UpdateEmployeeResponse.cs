@@ -1,4 +1,4 @@
-﻿using EmployeeAdminPortal.Employees.AddEmployee.Dtos;
+﻿using EmployeeAdminPortal.Employees.UpdateEmployee.Dtos;
 
 namespace EmployeeAdminPortal.Employees.UpdateEmployee
 {

@@ -1,4 +1,4 @@
-﻿using EmployeeAdminPortal.Employees.AddEmployee.Dtos;
+﻿using EmployeeAdminPortal.Employees.GetEmployeeById.Dtos;
 
 namespace EmployeeAdminPortal.Employees.GetEmployeeById
 {
