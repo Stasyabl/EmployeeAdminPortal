@@ -48,7 +48,7 @@ namespace EmployeeAdminPortal.Services
 
             if (employee is null)
             {
-                return null!;
+                return new UpdateEmployeeOutput { Employee = null };
             }
 
             employee.Name = input.Employee.Name;

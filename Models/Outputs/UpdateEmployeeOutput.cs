@@ -4,6 +4,6 @@ namespace EmployeeAdminPortal.Models.Outputs
 {
     public class UpdateEmployeeOutput
     {
-        public Employee Employee { get; set; } = null!;
+        public Employee? Employee { get; set; }
     }
 }
