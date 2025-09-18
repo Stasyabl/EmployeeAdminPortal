@@ -2,11 +2,9 @@
 {
     public class EmployeeDto
     {
-        public Guid EmployeeId { get; set; }
-        public string Name { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string? Phone { get; set; } = null!;
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string? Phone { get; set; }
         public decimal Salary { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

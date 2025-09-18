@@ -62,8 +62,7 @@ namespace EmployeeAdminPortal.Employees
         [Route("{id:guid}")]
         public IActionResult UpdateEmployee(Guid id, UpdateEmployeeRequest request)
         {
-            request.EmployeeId = id;
-            var input = UpdateEmployeeMapper.Map(request);
+            var input = UpdateEmployeeMapper.Map(request, id);
             var output = this._employeeService.UpdateEmployee(input);
             if (output.Employee is null)
             {
