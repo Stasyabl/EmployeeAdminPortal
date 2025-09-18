@@ -9,7 +9,7 @@ namespace EmployeeAdminPortal.Interfaces.Services
     {
         GetAllEmployeesOutput GetAllEmployees();
         GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input);
-        AddEmployeeOutput AddEmployee(AddEmployeeInput input);
+        void AddEmployee(AddEmployeeInput input);
         UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input);
         DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input);
     }

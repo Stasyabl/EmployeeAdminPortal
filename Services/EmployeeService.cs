@@ -35,24 +35,11 @@ namespace EmployeeAdminPortal.Services
             };
         }
 
-        public AddEmployeeOutput AddEmployee(AddEmployeeInput input)
+        public void AddEmployee(AddEmployeeInput input)
         {
-            var employee = new Employee
-            {
-                Name = input.Employee.Name,
-                Email = input.Employee.Email,
-                Phone = input.Employee.Phone,
-                Salary = input.Employee.Salary,
-                IsDeleted = false
-            };
-
-            this._dbContext.Employees.Add(employee);
+            input.Employee.EmployeeId = Guid.NewGuid();
+            this._dbContext.Employees.Add(input.Employee);
             this._dbContext.SaveChanges();
-
-            return new AddEmployeeOutput()
-            {
-                Employee = employee
-            };
         }
 
         public UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input)

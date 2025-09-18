@@ -53,10 +53,9 @@ namespace EmployeeAdminPortal.Employees
         public IActionResult AddEmployee(AddEmployeeRequest request)
         {
             var input = AddEmployeeMapper.Map(request);
-            var output = this._employeeService.AddEmployee(input);
-            var response = AddEmployeeMapper.Map(output);
+            this._employeeService.AddEmployee(input);
 
-            return this.Ok(response);
+            return this.NoContent();
         }
 
         [HttpPut]

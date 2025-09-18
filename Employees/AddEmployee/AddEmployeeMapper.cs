@@ -8,6 +8,5 @@ namespace EmployeeAdminPortal.Employees.AddEmployee
     public static partial class AddEmployeeMapper
     {
         public static partial AddEmployeeInput Map(AddEmployeeRequest request);
-        public static partial AddEmployeeResponse Map(AddEmployeeOutput output);
     }
 }
