@@ -3,6 +3,7 @@ using EmployeeAdminPortal.Interfaces.Services;
 using EmployeeAdminPortal.Models.Inputs;
 using EmployeeAdminPortal.Models.Outputs;
 using EmployeeAdminPortal.Models.Entities;
+using EmployeeAdminPortal.Extensions;
 
 namespace EmployeeAdminPortal.Services
 {
@@ -51,10 +52,7 @@ namespace EmployeeAdminPortal.Services
                 return new UpdateEmployeeOutput { Employee = null };
             }
 
-            employee.Name = input.Employee.Name;
-            employee.Email = input.Employee.Email;
-            employee.Phone = input.Employee.Phone;
-            employee.Salary = input.Employee.Salary;
+            employee.UpdateFrom(input.Employee);
 
             this._dbContext.SaveChanges();
 
