@@ -11,6 +11,6 @@ namespace EmployeeAdminPortal.Interfaces.Services
         GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input);
         void AddEmployee(AddEmployeeInput input);
         UpdateEmployeeOutput UpdateEmployee(Guid id, UpdateEmployeeInput input);
-        DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input);
+        SimpleResult<object> DeleteEmployee(Guid id);
     }
 }

@@ -4,6 +4,7 @@ using EmployeeAdminPortal.Models.Inputs;
 using EmployeeAdminPortal.Models.Outputs;
 using EmployeeAdminPortal.Models.Entities;
 using EmployeeAdminPortal.Extensions;
+using EmployeeAdminPortal.Models;
 
 namespace EmployeeAdminPortal.Services
 {
@@ -62,22 +63,19 @@ namespace EmployeeAdminPortal.Services
             };
         }
 
-        public DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input)
+        public SimpleResult<object> DeleteEmployee(Guid id)
         {
-            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == id && !e.IsDeleted);
 
             if (employee is null)
             {
-                return new DeleteEmployeeOutput { Success = false };
+                return SimpleResult<object>.FromError("NotFound", "Employee not found", false);
             }
 
             employee.IsDeleted = true;
             this._dbContext.SaveChanges();
 
-            return new DeleteEmployeeOutput() 
-            { 
-                Success = true 
-            };
+            return SimpleResult<object>.FromSuccess(null);
         }
     }
 }

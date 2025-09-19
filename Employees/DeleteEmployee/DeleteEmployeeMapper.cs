@@ -9,6 +9,5 @@ namespace EmployeeAdminPortal.Employees.DeleteEmployee
     public static partial class DeleteEmployeeMapper
     {
         public static partial DeleteEmployeeInput Map(DeleteEmployeeRequest request);
-        public static partial DeleteEmployeeResponse Map(DeleteEmployeeOutput output);
     }
 }

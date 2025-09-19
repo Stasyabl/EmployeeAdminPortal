@@ -75,10 +75,8 @@ namespace EmployeeAdminPortal.Employees
         [Route("{id:guid}")]
         public IActionResult DeleteEmployee(Guid id)
         {
-            var request = new DeleteEmployeeRequest { EmployeeId = id };
-            var input = DeleteEmployeeMapper.Map(request);
-            var output = this._employeeService.DeleteEmployee(input);
-            return output.Success ? this.Ok(output) : this.NotFound(output);
+            var result = this._employeeService.DeleteEmployee(id);
+            return result.IsSuccess ? this.Ok() : this.NotFound(result.Description);
         }
     }
 }
