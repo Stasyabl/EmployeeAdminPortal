@@ -43,16 +43,16 @@ namespace EmployeeAdminPortal.Services
             this._dbContext.SaveChanges();
         }
 
-        public UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input)
+        public UpdateEmployeeOutput UpdateEmployee(Guid id, UpdateEmployeeInput input)
         {
-            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == id && !e.IsDeleted);
 
             if (employee is null)
             {
                 return new UpdateEmployeeOutput { Employee = null };
             }
 
-            employee.UpdateFrom(input.Employee);
+            employee.UpdateFrom(input);
 
             this._dbContext.SaveChanges();
 

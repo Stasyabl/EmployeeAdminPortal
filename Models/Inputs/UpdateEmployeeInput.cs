@@ -4,7 +4,9 @@ namespace EmployeeAdminPortal.Models.Inputs
 {
     public class UpdateEmployeeInput
     {
-        public Guid EmployeeId {  get; set; }
-        public Employee Employee { get; set; } = new Employee { Name = string.Empty, Email = string.Empty };
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string? Phone { get; set; }
+        public decimal Salary { get; set; }
     }
 }

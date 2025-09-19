@@ -1,9 +1,9 @@
 ﻿using EmployeeAdminPortal.Data;
+using EmployeeAdminPortal.Models.Inputs;
 using EmployeeAdminPortal.Employees.AddEmployee;
 using EmployeeAdminPortal.Employees.GetAllEmployees;
 using EmployeeAdminPortal.Employees.GetEmployeeById;
 using EmployeeAdminPortal.Employees.DeleteEmployee;
-using EmployeeAdminPortal.Employees.UpdateEmployee;
 using EmployeeAdminPortal.Interfaces.Services;
 using EmployeeAdminPortal.Models;
 using EmployeeAdminPortal.Models.Entities;
@@ -60,17 +60,15 @@ namespace EmployeeAdminPortal.Employees
 
         [HttpPut]
         [Route("{id:guid}")]
-        public IActionResult UpdateEmployee(Guid id, UpdateEmployeeRequest request)
+        public IActionResult UpdateEmployee(Guid id, UpdateEmployeeInput input)
         {
-            var input = UpdateEmployeeMapper.Map(request, id);
-            var output = this._employeeService.UpdateEmployee(input);
+            var output = this._employeeService.UpdateEmployee(id, input);
             if (output.Employee is null)
             {
                 return this.NotFound();
             }
 
-            var response = UpdateEmployeeMapper.Map(output);
-            return this.Ok(response);
+            return this.Ok(output.Employee);
         }
 
         [HttpDelete]

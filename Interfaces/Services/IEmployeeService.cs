@@ -10,7 +10,7 @@ namespace EmployeeAdminPortal.Interfaces.Services
         GetAllEmployeesOutput GetAllEmployees();
         GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input);
         void AddEmployee(AddEmployeeInput input);
-        UpdateEmployeeOutput UpdateEmployee(UpdateEmployeeInput input);
+        UpdateEmployeeOutput UpdateEmployee(Guid id, UpdateEmployeeInput input);
         DeleteEmployeeOutput DeleteEmployee(DeleteEmployeeInput input);
     }
 }

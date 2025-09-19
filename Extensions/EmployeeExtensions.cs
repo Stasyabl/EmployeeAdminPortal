@@ -1,14 +1,15 @@
 ﻿using EmployeeAdminPortal.Models.Entities;
+using EmployeeAdminPortal.Models.Inputs;
 
 namespace EmployeeAdminPortal.Extensions;
 
 public static class EmployeeExtensions
 {
-    public static void UpdateFrom(this Employee target, Employee source)
+    public static void UpdateFrom(this Employee employee, UpdateEmployeeInput input)
     {
-        target.Name = source.Name;
-        target.Email = source.Email;
-        target.Phone = source.Phone;
-        target.Salary = source.Salary;
+        employee.Name = input.Name;
+        employee.Email = input.Email;
+        employee.Phone = input.Phone;
+        employee.Salary = input.Salary;
     }
 }
