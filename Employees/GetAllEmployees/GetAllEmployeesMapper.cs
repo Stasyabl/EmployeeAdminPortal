@@ -1,5 +1,6 @@
 ﻿using Riok.Mapperly.Abstractions;
 using EmployeeAdminPortal.Models.Outputs;
+using EmployeeAdminPortal.Models.Entities;
 
 namespace EmployeeAdminPortal.Employees.GetAllEmployees
 {
