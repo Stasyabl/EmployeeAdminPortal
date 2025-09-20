@@ -10,6 +10,7 @@ using EmployeeAdminPortal.Models.Entities;
 using EmployeeAdminPortal.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using EmployeeAdminPortal.Employees.AddEmployee.Dtos;
 
 namespace EmployeeAdminPortal.Employees
 {

@@ -29,7 +29,7 @@ namespace EmployeeAdminPortal.Services
 
         public GetEmployeeByIdOutput GetEmployeeById(GetEmployeeByIdInput input)
         {
-            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == input.EmployeeId && !e.IsDeleted);
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.Id == input.EmployeeId && !e.IsDeleted);
 
             return new GetEmployeeByIdOutput()
             {
@@ -39,14 +39,14 @@ namespace EmployeeAdminPortal.Services
 
         public void AddEmployee(AddEmployeeInput input)
         {
-            input.Employee.EmployeeId = Guid.NewGuid();
+            input.Employee.Id = Guid.NewGuid();
             this._dbContext.Employees.Add(input.Employee);
             this._dbContext.SaveChanges();
         }
 
         public UpdateEmployeeOutput UpdateEmployee(Guid id, UpdateEmployeeInput input)
         {
-            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == id && !e.IsDeleted);
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.Id == id && !e.IsDeleted);
 
             if (employee is null)
             {
@@ -65,7 +65,7 @@ namespace EmployeeAdminPortal.Services
 
         public SimpleResult<object> DeleteEmployee(Guid id)
         {
-            var employee = this._dbContext.Employees.FirstOrDefault(e => e.EmployeeId == id && !e.IsDeleted);
+            var employee = this._dbContext.Employees.FirstOrDefault(e => e.Id == id && !e.IsDeleted);
 
             if (employee is null)
             {

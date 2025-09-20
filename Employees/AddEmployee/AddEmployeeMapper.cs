@@ -1,4 +1,5 @@
-﻿using EmployeeAdminPortal.Models.Inputs;
+﻿using EmployeeAdminPortal.Employees.AddEmployee.Dtos;
+using EmployeeAdminPortal.Models.Inputs;
 using EmployeeAdminPortal.Models.Outputs;
 using Riok.Mapperly.Abstractions;
 

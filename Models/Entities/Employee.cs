@@ -1,8 +1,11 @@
-﻿namespace EmployeeAdminPortal.Models.Entities
+﻿using Riok.Mapperly.Abstractions;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EmployeeAdminPortal.Models.Entities
 {
     public class Employee
     {
-        public Guid EmployeeId { get; set; }
+        public Guid Id { get; set; }
 
         public required string Name { get; set; }
 
@@ -12,6 +15,7 @@
 
         public decimal Salary { get; set; }
 
+        [MapperIgnore]
         public bool IsDeleted { get; set; } = false;
     }
 }
